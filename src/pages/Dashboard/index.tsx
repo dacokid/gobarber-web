@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { FiClock, FiPower } from 'react-icons/fi';
 import logoImg from '../../assets/logo.svg';
@@ -12,13 +12,15 @@ import {
   Content,
   Schedule,
   NextAppointment,
+  Section,
+  Appointment,
   Calendar,
 } from './styles';
 
 const Dashboard: React.FC = () => {
-  const { signOut, user } = useAuth();
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
-  console.log(user);
+  const { signOut, user } = useAuth();
 
   return (
     <Container>
@@ -37,6 +39,7 @@ const Dashboard: React.FC = () => {
           </button>
         </HeaderContent>
       </Header>
+
       <Content>
         <Schedule>
           <h1>Horários agendados</h1>
@@ -56,10 +59,65 @@ const Dashboard: React.FC = () => {
 
               <strong>Daniel Cunha</strong>
               <span>
-                <FiClock /> 08:00
+                <FiClock />
+                08:00
               </span>
             </div>
           </NextAppointment>
+
+          <Section>
+            <strong>Manhã</strong>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img
+                  src="https://avatars.githubusercontent.com/u/28742636?s=460&u=27176533bcd3e753476539ce7f43dc97e61cabd6&v=4"
+                  alt="Daniel Cunha"
+                />
+
+                <strong>Daniel Cunha</strong>
+              </div>
+            </Appointment>
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img
+                  src="https://avatars.githubusercontent.com/u/28742636?s=460&u=27176533bcd3e753476539ce7f43dc97e61cabd6&v=4"
+                  alt="Daniel Cunha"
+                />
+
+                <strong>Daniel Cunha</strong>
+              </div>
+            </Appointment>
+          </Section>
+          <Section>
+            <strong>Tarde</strong>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img
+                  src="https://avatars.githubusercontent.com/u/28742636?s=460&u=27176533bcd3e753476539ce7f43dc97e61cabd6&v=4"
+                  alt="Daniel Cunha"
+                />
+
+                <strong>Daniel Cunha</strong>
+              </div>
+            </Appointment>
+          </Section>
         </Schedule>
         <Calendar />
       </Content>
